@@ -76,14 +76,11 @@ response = function (status, headers, body)
   io.write("Response ".. counter .." with status: ".. status .." on thread ".. id .."\n")
   io.write("------------------------------\n")
 
-  -- Check headers were set
-  if (not next(headers) == nil) and (#headers > 0) then
-    io.write("[response] Headers:\n")
+  io.write("[response] Headers:\n")
 
-    -- Loop through passed arguments
-    for index, value in ipairs(headers) do
-      io.write("[response]  - " .. headers[index] .. "\n")
-    end
+  -- Loop through passed arguments
+  for key, value in pairs(headers) do
+    io.write("[response]  - " .. key  .. ": " .. value .. "\n")
   end
 
   io.write("[response] Body:\n")

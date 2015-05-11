@@ -1,0 +1,20 @@
+wrk:
+  build: environments/wrk
+
+  volumes:
+   - environments/wrk/scripts:/scripts
+
+  links:
+   - application
+
+  hostname: wrk
+  domainname: wrk.local
+
+application:
+  build: environments/debug_application
+
+  hostname: app
+  domainname: app.local
+
+  ports:
+   - "3000:3000"

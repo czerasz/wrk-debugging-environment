@@ -2,7 +2,7 @@ wrk:
   build: environments/wrk
 
   volumes:
-   - environments/wrk/scripts:/scripts
+   - ./environments/wrk/scripts:/scripts
 
   links:
    - application
